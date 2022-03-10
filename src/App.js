@@ -1,20 +1,25 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Step1 from './components/Step1';
-import Step2 from './components/Step2';
-import Step3 from './components/Step3';
-import Result from './components/Result';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Step1 } from "./components/Steps/Step1";
+import { Step2 } from "./components/Steps/Step2";
+import { Step3 } from "./components/Steps/Step3";
+import { Result } from "./components/Result";
+import { Header } from "./components/Header";
+import { MainContainer } from "./components/MainContainer";
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path="/" component={Step1}></Route>
-        <Route path="/step2" component={Step2}></Route>
-        <Route path="/step3" component={Step3}></Route>
-        <Route path="/result" component={Result}></Route>
-      </Switch>
-    </Router>
+    <MainContainer>
+      <Header />
+      <BrowserRouter>
+        <Routes>
+          <Route exact path="/" element={<Step1 />}></Route>
+          <Route path="/step2" element={<Step2 />}></Route>
+          <Route path="/step3" element={<Step3 />}></Route>
+          <Route path="/result" element={<Result />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </MainContainer>
   );
 }
 
