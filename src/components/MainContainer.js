@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    justifyContent: "center",
   },
 }));
 
@@ -15,7 +16,12 @@ export const MainContainer = ({ children, ...props }) => {
   const styles = useStyles();
 
   return (
-    <Container className={styles.root} element={<main/>} maxWidth="xs" {...props}>
+    <Container
+      className={styles.root}
+      element={<main />}
+      maxWidth="xs"
+      {...props}
+    >
       {children}
     </Container>
   );
